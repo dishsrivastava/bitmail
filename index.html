@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Static Email Client</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+   <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <div id="wrapper">
+    
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <i class="fas fa-cloud"></i>
+        <div class="sidebar-brand-text mx-3">BitMail</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html"> <i class="fas fa-fw fa-inbox"></i> <span>My Inbox</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        BitMail
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-star"></i> <span>Starred</span></a>
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-paper-plane"></i> <span>Sent</span></a>
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-sticky-note"></i> <span>Drafts</span></a>
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-exclamation-triangle"></i> <span>Spam</span></a>
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-trash"></i> <span>Trash</span></a>  
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Other
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+		<a class="nav-link" href="#"> <i class="fas fa-fw fa-calendar"></i> <span>Calendar</span></a>
+        <a class="nav-link" href="#"> <i class="fas fa-fw fa-phone"></i> <span>Calls</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search mail..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-danger">
+                      <i class="fas fa-calendar text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">March 10, 2019</div>
+                    Calendar Reminder: Hannah's Baby Shower!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-phone text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">February 28, 2019</div>
+                    Missed Video Call From Mom 
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">January 2, 2019</div>
+                    <strong> E-Message from Chase </strong> View Now!
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - Account Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Disha Srivastava</span>
+                <img class="img-profile rounded-circle" src="img/dish.jpeg">
+              </a>
+              <!-- Dropdown - Account Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+    			  Account
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+    
+    <!-- TABS  -->
+	<div id="content-wrapper">
+    <div class="container-fluid">
+   
+	<div class="container">
+		<ul class="nav nav-pills nav-justified">
+  			<li class="nav-item"> <a class="nav-link active" href="#ViewMessages" data-toggle="tab">View Messages</a> </li>
+  			<li class="nav-item"> <a class="nav-link" href="#SendMessages" data-toggle="tab">Send Message</a> </li>
+		</ul>
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="ViewMessages"> 
+			<!-- View Messages Table  -->
+			<h1> </h1>
+    			<div id="content-wrapper">
+      			<div class="container-fluid">
+        		<div class="card mb-3">
+         		<div class="card-header"> <i class="fas fa-table"></i> <strong> View Messages </strong> </div>
+          		<div class="card-body">
+            	<div class="table-responsive">
+              	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                	<thead> <tr>
+                    	<th>From</th>
+                    	<th>Subject</th>
+                    	<th>View</th>
+                  	</tr> </thead>
+                	<tbody>
+                  		<tr>
+                    		<td>Ronny_Beitenberg41@gmail.com </td>
+                    		<td>Officer Usability Electronics</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal1"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal1" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Officer Usability Electronics</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Ronny_Beitenberg41@gmail.com </p> </div>
+      								<div class="modal-body"> <p> You can't quantify the panel without compressing the auxiliary EXE firewall!" </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+  							</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Alize.Stehr61@gmail.com</td>
+                    		<td>Grid-enabled Bi-directional Rubber</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal2"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal2" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Grid-enabled Bi-directional Rubber</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Alize.Stehr61@gmail.com </p> </div>
+      								<div class="modal-body"> <p> If we quantify the circuit, we can get to the SSL panel through the multi-byte PCI panel! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+							</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Kaleb38@yahoo.com</td>
+                   			<td>South Georgia and the South Sandwich Islands Associate IB</td>
+							<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal3"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal3" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title"> South Georgia and the South Sandwich Islands Associate IB </h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Kaleb38@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> Use the optical USB protocol, then you can reboot the back-end alarm! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>                    
+                  		</tr>
+                  		<tr>
+                    		<td>Moriah.Fahey@yahoo.com</td>
+                    		<td>Bedfordshire</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal4"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal4" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Bedfordshire</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Moriah.Fahey@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> The SAS transmitter is down, program the haptic protocol so we can hack the HTTP pixel! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Desiree_Abbott@gmail.com</td>
+                    		<td>Sleek Soft Salad</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal5"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal5" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Sleek Soft Salad</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Desiree_Abbott@gmail.com </p> </div>
+      								<div class="modal-body"> <p> Use the cross-platform AGP card, then you can parse the digital firewall! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                 		</tr>
+                 		<tr>
+                  			<td>Larissa14@gmail.com</td>
+                    		<td>Burkina Faso Electronics</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal6"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal6" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Burkina Faso Electronics</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Larissa14@gmail.com </p> </div>
+      								<div class="modal-body"> <p>  The COM hard drive is down, program the open-source protocol so we can back up the ADP program! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Bridgette.Jacobson@gmail.com</td>
+                    		<td>Bandwidth</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal7"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal7" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Bandwidth</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Bridgette.Jacobson@gmail.com </p> </div>
+      								<div class="modal-body"> <p> The RSS microchip is down, calculate the back-end bus so we can compress the USB firewall! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Wiley12@gmail.com</td>
+                    		<td>Synthesize</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal7"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal7" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Synthesize</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Wiley12@gmail.com </p> </div>
+      								<div class="modal-body"> <p> We need to input the auxiliary SMS alarm! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Edwardo_Nitzsche59@yahoo.com</td>
+                    		<td>Latvia International</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal8"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal8" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Latvia International</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Edwardo_Nitzsche59@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> You can't override the matrix without backing up the primary XML system! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Jayden_Kuhic@yahoo.com</td>
+                    		<td>Deposit</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal9"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal9" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Deposit</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Jayden_Kuhic@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> If we generate the feed, we can get to the SAS interface through the 1080p EXE bandwidth! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Devin74@yahoo.com</td>
+                    		<td>Monitor</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal10"> </button>
+                          		<!-- EMAIL VIEW -->
+								<div id="myModal10" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Monitor</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Devin74@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> Try to index the SDD pixel, maybe it will connect the mobile card! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                  		  	</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Austin_Baumbach50@yahoo.com</td>
+                    		<td>Brand Deposit</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal11"> </button>
+                         		<!-- EMAIL VIEW -->
+								<div id="myModal11" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Brand Deposit</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Austin_Baumbach50@yahoo.com </p> </div>
+      								<div class="modal-body"> <p> The HTTP card is down, parse the redundant microchip so we can quantify the PCI panel! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                  		</tr>
+                  		<tr>
+                    		<td>Rita.Lang45@gmail.com</td>
+                    		<td>Lead Officer</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal12"> </button>
+                        		<!-- EMAIL VIEW -->
+									<div id="myModal12" class="modal fade" role="dialog">
+  									<div class="modal-dialog modal-lg">
+    								<div class="modal-content">
+    									<div class="modal-header"> <h4 class="modal-title">Lead Officer</h4> </div>
+      									<div class="modal-body"> <p> <strong> From: </strong> Rita.Lang45@gmail.com </p> </div>
+      									<div class="modal-body"> <p> Use the optical XML capacitor, then you can navigate the mobile bus! </p> </div>
+      									<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    								</div>
+									</div>
+  									</div>
+                    		</td> 
+                		</tr>
+                		<tr>
+                    		<td>Brooks_Waters65@yahoo.com</td>
+                    		<td>Context-Sensitive</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal13"> </button>
+                        		<!-- EMAIL VIEW -->
+								<div id="myModal13" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    									<div class="modal-header"> <h4 class="modal-title">Context-Sensitive</h4> </div>
+      									<div class="modal-body"> <p> <strong> From: </strong> Brooks_Waters65@yahoo.com </p> </div>
+      									<div class="modal-body"> <p> Compressing the matrix won't do anything, we need to connect the redundant SMS feed! </p> </div>
+      									<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>     
+                		</tr>
+               		 	<tr>
+							<td>Marguerite_Kuhn@hotmail.com</td>
+                    		<td>Serbia</td>
+                    		<td> 
+                    			<button type="button" class="btn btn-dark fa fa-envelope-open" data-toggle="modal" data-target="#myModal14"> </button>
+                         		<!-- EMAIL VIEW -->
+								<div id="myModal14" class="modal fade" role="dialog">
+  								<div class="modal-dialog modal-lg">
+    							<div class="modal-content">
+    								<div class="modal-header"> <h4 class="modal-title">Serbia</h4> </div>
+      								<div class="modal-body"> <p> <strong> From: </strong> Marguerite_Kuhn@hotmail.com </p> </div>
+      								<div class="modal-body"> <p> If we synthesize the card, we can get to the PCI panel through the redundant HDD alarm! </p> </div>
+      								<div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+    							</div>
+								</div>
+  								</div>
+                    		</td>
+                 		</tr>
+                	</tbody> 
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated now</div>
+        </div>
+      </div>
+    <!-- /.container-fluid -->
+    </div>			
+        		
+    	</div>
+			<div class="tab-pane" id="SendMessages"> 
+		<!-- Create Messages Table-->
+		<h1> </h1>
+    	<div id="content-wrapper">
+      	<div class="container-fluid">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-paper-plane"></i> <strong>Create Message</strong> </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            	<form name="sentMessage" id="contactForm" novalidate>
+
+                <thead> <tr>
+                	<th> To:
+                  	<div class="control-group">
+              		<div class="form-group floating-label-form-group controls">
+                			<input type="email" class="form-control" placeholder="Recipent Email Address">
+              		</div>
+            		</div>
+            		</th>
+                </thead> </tr> 
+                
+                <thead> <tr>
+                	<th> Subject:
+                    <div class="control-group">
+              		<div class="form-group floating-label-form-group controls">
+                		<input type="text" class="form-control" placeholder="Subject Here">
+              		</div>
+            		</div>
+            		</th>
+                </thead> </tr> 
+                
+                <thead> <tr>
+                	<th> Message:
+                	<div class="form-group">
+                		<textarea class="form-control" placeholder="Your Message Here" rows="20"></textarea>
+            		</div>
+            		</th>
+                </thead> </tr>
+                
+                <thead> </tr>
+                	<th> 
+                	<div id="success"></div>
+          			<button class="btn btn-danger" id="#">Send Message</button>
+          			</th>
+          		</thead> </tr> 
+          		
+                </form>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+			</div> <!-- closes create message tab  -->
+		</div> <!-- closes tab content container  -->
+	</div> <!-- closes entire tab container  -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Terms · Privacy · Policies</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+   <!-- Modal -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+
+</body>
+
+</html>
